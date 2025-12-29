@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Analisis Sentimen Iterative vs Recursive</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Analisis Sentimen</h2>
+
+  <label>Pilih jumlah kata random:</label>
+  <select id="wordSelect">
+    <option value="3000">3000</option>
+    <option value="7000">7000</option>
+    <option value="10000">10000</option>
+  </select>
+
+  <br><br>
+  <button onclick="generateRandomSentence()">Generate Kata Random</button>
+  <button onclick="runAnalysis()">Run Benchmark</button>
+
+  <p id="wordCount"></p>
+
+  <textarea id="textInput" placeholder="Kalimat random akan muncul di sini..."></textarea>
+
+  <table>
+    <thead>
+      <tr>
+        <th>n</th>
+        <th>Sentimen</th>
+        <th>Iterative (ms)</th>
+        <th>Recursive (ms)</th>
+      </tr>
+    </thead>
+    <tbody id="resultTable"></tbody>
+  </table>
+
+  <canvas id="performanceChart"></canvas>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
