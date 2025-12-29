@@ -66,7 +66,7 @@ function sentimentRecursive(words, i = 0) {
 }
 
 
-//   RUN BENCHMARK (FINAL FIX)
+//   RUN BENCHMARK
 function runAnalysis() {
   if (wordsData.length === 0) {
     alert("Generate kata terlebih dahulu!");
@@ -142,4 +142,5 @@ function drawChart(labels, iter, rec) {
     }
   });
 }
+
 
