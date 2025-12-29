@@ -11,9 +11,8 @@ const negativeWords = [
 let wordsData = [];
 let chart = null;
 
-/* ===============================
-   GENERATE KATA RANDOM
-================================ */
+
+//GENERATE KATA RANDOM
 function generateRandomSentence() {
   const total = Number(document.getElementById("wordSelect").value);
   wordsData = [];
@@ -31,9 +30,8 @@ function generateRandomSentence() {
   updateCount();
 }
 
-/* ===============================
-   HITUNG POSITIF & NEGATIF
-================================ */
+
+// HITUNG POSITIF & NEGATIF
 function updateCount() {
   let pos = 0, neg = 0;
   for (let w of wordsData) {
@@ -44,9 +42,8 @@ function updateCount() {
     `Positif: <b>${pos}</b> | Negatif: <b>${neg}</b>`;
 }
 
-/* ===============================
-   ITERATIVE
-================================ */
+
+//   ITERATIVE
 function sentimentIterative(words) {
   let score = 0;
   for (let w of words) {
@@ -56,9 +53,8 @@ function sentimentIterative(words) {
   return score;
 }
 
-/* ===============================
-   RECURSIVE
-================================ */
+
+// RECURSIVE
 function sentimentRecursive(words, i = 0) {
   if (i === words.length) return 0;
 
@@ -69,16 +65,14 @@ function sentimentRecursive(words, i = 0) {
   return val + sentimentRecursive(words, i + 1);
 }
 
-/* ===============================
-   RUN BENCHMARK (FINAL FIX)
-================================ */
+
+//   RUN BENCHMARK (FINAL FIX)
 function runAnalysis() {
   if (wordsData.length === 0) {
     alert("Generate kata terlebih dahulu!");
     return;
   }
 
-  // ✅ FIX: 1000 SELALU MASUK
   const checkpoints = [1000, 3000, 7000, 10000]
     .filter(n => n <= wordsData.length);
 
@@ -121,9 +115,8 @@ function runAnalysis() {
   drawChart(labels, iterTimes, recTimes);
 }
 
-/* ===============================
-   GRAFIK
-================================ */
+
+// GRAFIK
 function drawChart(labels, iter, rec) {
   const ctx = document.getElementById("performanceChart");
   if (chart) chart.destroy();
@@ -149,3 +142,4 @@ function drawChart(labels, iter, rec) {
     }
   });
 }
+
